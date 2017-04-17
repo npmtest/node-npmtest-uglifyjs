@@ -1,1 +1,40 @@
-{     "devDependencies": {         "uglifyjs": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-uglifyjs",     "homepage": "https://github.com/npmtest/node-npmtest-uglifyjs",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-uglifyjs.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "test coverage for [uglifyjs (v2.4.10)](http://lisperator.net/uglifyjs) [![npm package](https://img.shields.io/npm/v/npmtest-uglifyjs.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-uglifyjs) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-uglifyjs.svg)](https://travis-ci.org/npmtest/node-npmtest-uglifyjs)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "uglifyjs": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-uglifyjs",
+    "keywords": [
+        "coverage",
+        "test",
+        "uglifyjs"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_uglifyjs.js",
+    "name": "npmtest-uglifyjs",
+    "nameAlias": "npmtest_uglifyjs",
+    "nameOriginal": "npmtest-uglifyjs",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-uglifyjs.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
